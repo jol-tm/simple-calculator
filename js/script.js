@@ -1,66 +1,60 @@
-document.addEventListener("DOMContentLoaded", function(e){
-    const somarbtn = document.getElementById("somar");
-    const subtrairbtn = document.getElementById("subtrair");
-    const multiplicarbtn = document.getElementById("multiplicar");
-    const dividirbtn = document.getElementById("dividir");
-    const limparbtn = document.getElementById("limpar");
-    const divres = document.getElementById("resultado");
-    var history = localStorage.getItem("history");
-    somarbtn.addEventListener("click", somar);
-    subtrairbtn.addEventListener("click", subtrair);
-    multiplicarbtn.addEventListener("click", multiplicar);
-    dividirbtn.addEventListener("click", dividir);
-    limparbtn.addEventListener("click", limpar);
-    divres.innerHTML = history;
-})
+$(document).ready(function(e) {
+    $('#somar').on('click', somar);
+    $('#subtrair').on('click', subtrair);
+    $('#multiplicar').on('click', multiplicar);
+    $('#dividir').on('click', dividir);
+    $('#limpar').on('click', limpar);    
+    $('#resultado').html(localStorage.getItem("history"));
+});
 
+var conteudo;
 
 function somar() {
-    const opr = document.getElementById("operacao");
-    const divres = document.getElementById("resultado");
-    var valor1 = parseInt(document.getElementById("entrada1").value);
-    var valor2 = parseInt(document.getElementById("entrada2").value);
+    var valor1 = parseInt($('#entrada1').val());
+    var valor2 = parseInt($('#entrada2').val());
     var resultado = valor1 + valor2;
-    opr.innerText = "+";
-    divres.innerHTML =  valor1 + " + " + valor2 + " = " + resultado + "<br>" + divres.innerHTML;
-    localStorage.setItem("history", divres.innerHTML);
+    conteudo = '';
+    conteudo += valor1 + " + " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
+    $('#operacao').text('+');
+    $('#resultado').html(conteudo);
+    localStorage.setItem("history", conteudo);
 }
 
 function subtrair() {
-    const opr = document.getElementById("operacao");
-    const divres = document.getElementById("resultado");
-    var valor1 = parseInt(document.getElementById("entrada1").value);
-    var valor2 = parseInt(document.getElementById("entrada2").value);
-    var resultado =  valor1 - valor2;
-    opr.innerText = "-";
-    divres.innerHTML =  valor1 + " - " + valor2 + " = " + resultado + "<br>" + divres.innerHTML;
-    localStorage.setItem("history", divres.innerHTML);
+    var valor1 = parseInt($('#entrada1').val());
+    var valor2 = parseInt($('#entrada2').val());
+    var resultado = valor1 - valor2;
+    conteudo = '';
+    conteudo += valor1 + " - " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
+    $('#operacao').text('-');
+    $('#resultado').html(conteudo);
+    localStorage.setItem("history", conteudo);
 }
 
 function multiplicar() {
-    const opr = document.getElementById("operacao");
-    const divres = document.getElementById("resultado");
-    var valor1 = parseInt(document.getElementById("entrada1").value);
-    var valor2 = parseInt(document.getElementById("entrada2").value);
+    var valor1 = parseInt($('#entrada1').val());
+    var valor2 = parseInt($('#entrada2').val());
     var resultado = valor1 * valor2;
-    opr.innerText = "x";
-    divres.innerHTML =  valor1 + " x " + valor2 + " = " + resultado + "<br>" + divres.innerHTML;
-    localStorage.setItem("history", divres.innerHTML);
+    conteudo = '';
+    conteudo += valor1 + " x " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
+    $('#operacao').text('x');
+    $('#resultado').html(conteudo);
+    localStorage.setItem("history", conteudo);
 }
 
 function dividir() {
-    const opr = document.getElementById("operacao");
-    const divres = document.getElementById("resultado");
-    var valor1 = parseInt(document.getElementById("entrada1").value);
-    var valor2 = parseInt(document.getElementById("entrada2").value);
+    var valor1 = parseInt($('#entrada1').val());
+    var valor2 = parseInt($('#entrada2').val());
     var resultado = valor1 / valor2;
-    opr.innerText = "÷";
-    divres.innerHTML =  valor1 + " ÷ " + valor2 + " = " + resultado + "<br>" + divres.innerHTML;
-    localStorage.setItem("history", divres.innerHTML);
+    conteudo = '';
+    conteudo += valor1 + " ÷ " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
+    $('#operacao').text('÷');
+    $('#resultado').html(conteudo);
+    localStorage.setItem("history", conteudo);
 }
 
 function limpar() {
-    const divres = document.getElementById("resultado");
-    divres.innerHTML = "";
-    localStorage.setItem("history", divres.innerHTML);
+    conteudo = '';
+    $('#resultado').html('');
+    localStorage.setItem("history", conteudo);
 }
