@@ -7,12 +7,12 @@ $(document).ready(function(e) {
     $('#resultado').html(localStorage.getItem("history"));
 });
 
-var conteudo;
+let conteudo;
 
 function somar() {
-    var valor1 = parseInt($('#entrada1').val());
-    var valor2 = parseInt($('#entrada2').val());
-    var resultado = valor1 + valor2;
+    let valor1 = parseInt($('#entrada1').val());
+    let valor2 = parseInt($('#entrada2').val());
+    let resultado = valor1 + valor2;
     conteudo = '';
     conteudo += valor1 + " + " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
     $('#operacao').text('+');
@@ -21,9 +21,9 @@ function somar() {
 }
 
 function subtrair() {
-    var valor1 = parseInt($('#entrada1').val());
-    var valor2 = parseInt($('#entrada2').val());
-    var resultado = valor1 - valor2;
+    let valor1 = parseInt($('#entrada1').val());
+    let valor2 = parseInt($('#entrada2').val());
+    let resultado = valor1 - valor2;
     conteudo = '';
     conteudo += valor1 + " - " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
     $('#operacao').text('-');
@@ -32,9 +32,9 @@ function subtrair() {
 }
 
 function multiplicar() {
-    var valor1 = parseInt($('#entrada1').val());
-    var valor2 = parseInt($('#entrada2').val());
-    var resultado = valor1 * valor2;
+    let valor1 = parseInt($('#entrada1').val());
+    let valor2 = parseInt($('#entrada2').val());
+    let resultado = valor1 * valor2;
     conteudo = '';
     conteudo += valor1 + " x " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
     $('#operacao').text('x');
@@ -43,9 +43,9 @@ function multiplicar() {
 }
 
 function dividir() {
-    var valor1 = parseInt($('#entrada1').val());
-    var valor2 = parseInt($('#entrada2').val());
-    var resultado = valor1 / valor2;
+    let valor1 = parseInt($('#entrada1').val());
+    let valor2 = parseInt($('#entrada2').val());
+    let resultado = valor1 / valor2;
     conteudo = '';
     conteudo += valor1 + " ÷ " + valor2 + " = " + resultado + "<br>" + $('#resultado').html();
     $('#operacao').text('÷');
